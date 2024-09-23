@@ -89,7 +89,7 @@ html_context = {
     "github_user": github_user,
     # Auto-detect directory name.  This can break, but
     # useful as a default.
-    "github_repo": github_repo_name or basename(dirname(realpath(__file__))),
+    "github_repo": github_repo_name or basename(dirname(dirname(realpath(__file__)))),
     "github_version": github_version,
     "conf_py_path": conf_py_path,
 }
