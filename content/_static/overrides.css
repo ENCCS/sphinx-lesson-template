@@ -61,7 +61,7 @@
     background: rgba(217, 240, 211, 0.3);
 }
 .rst-content .signature > .admonition-title {
-    background: rgba(172, 211, 158, 0.5);
+    background: #21634b;
 }
 .rst-content .signature > .admonition-title::before {
     content: "\01F527";
@@ -72,7 +72,7 @@
     background: rgba(217, 240, 211, 0.0);
 }
 .rst-content .parameters > .admonition-title {
-    background: rgba(172, 211, 158, 0.5);
+    background: #21634b;
 }
 .rst-content .parameters > .admonition-title::before {
     content: "\01F4BB";
