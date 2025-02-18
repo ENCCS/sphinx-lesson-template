@@ -32,6 +32,7 @@ jobs:
       # https://github.com/marketplace/actions/checkout
       - uses: actions/checkout@v4
         with:
+          persist-credentials: false
           fetch-depth: 0
           lfs: true
 
