@@ -16,6 +16,8 @@ prerequisites
 ```{toctree}
 :caption: The lesson
 :maxdepth: 1
+
+episode.md
 ```
 
 ```{toctree}
