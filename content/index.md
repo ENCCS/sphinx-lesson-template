@@ -24,6 +24,7 @@ prerequisites
 
 quick-reference
 guide
+directives
 ```
 
 (learner-personas)=
