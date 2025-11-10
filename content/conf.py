@@ -10,16 +10,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
 
 # -- Project information -----------------------------------------------------
 
-project = "LESSON NAME"
-copyright = "2021, The contributors"
+# FIXME: choose title
+project = "Your lesson name"
+# FIXME: insert correct author
 author = "The contributors"
+copyright = f"2025, ENCCS, {author}"
+
+# FIXME: github organization / user that the repository belongs to
 github_user = "ENCCS"
 github_repo_name = ""  # auto-detected from dirname if blank
 github_version = "main"
@@ -34,22 +34,26 @@ extensions = [
     # githubpages just adds a .nojekyll file
     "sphinx.ext.githubpages",
     "sphinx_lesson",
-    # remove once sphinx_rtd_theme updated for contrast and accessibility:
-    "sphinx_rtd_theme_ext_color_contrast",
+    "sphinx_evita",
+    "sphinxcontrib.bibtex",
+    "myst_nb",
     "sphinx.ext.todo",
+    "sphinx.ext.intersphinx",
 ]
+
+# FIXME: add bibtex files for references if any
+bibtex_bibfiles = []
 
 # Settings for myst_nb:
 # https://myst-nb.readthedocs.io/en/latest/use/execute.html#triggering-notebook-execution
-# jupyter_execute_notebooks = "off"
-# jupyter_execute_notebooks = "auto"   # *only* execute if at least one output is missing.
-# jupyter_execute_notebooks = "force"
+# nb_execution_mode = "off"
+# nb_execution_mode = "auto"   # *only* execute if at least one output is missing.
+# nb_execution_mode = "force"
 nb_execution_mode = "cache"
 
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
-myst_enable_extensions = [
-    "colon_fence",
-]
+myst_enable_extensions = ["colon_fence", "attrs_inline", "substitution"]
+myst_substitutions = {"author": author}
 
 # Settings for sphinx-copybutton
 copybutton_exclude = ".linenos, .gp"
@@ -70,67 +74,70 @@ exclude_patterns = [
 ]
 
 # -- Options for HTML output -------------------------------------------------
+from pathlib import Path
+
+
+HERE = Path(__file__).parent
+detected_repo_name = HERE.parent.name
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_rtd_theme"
-html_logo = "img/ENCCS.jpg"
-html_favicon = "img/favicon.ico"
+html_title = project
+html_theme = "furo"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 html_css_files = ["overrides.css"]
+html_favicon = str((HERE / "_static" / "favicon.ico").resolve())
+html_theme_options = {
+    "light_logo": "ENCCS_logo_light.png",
+    "dark_logo": "ENCCS_logo_dark.png",
+    "footer_icons": [
+        {
+            "name": "GitHub",
+            "url": f"https://github.com/ENCCS/{github_repo_name or detected_repo_name}",
+            "html": """
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            """,
+            "class": "",
+        },
+    ],
+}
+
 
 # HTML context:
-from os.path import basename, dirname, realpath
-
 html_context = {
     "display_github": True,
     "github_user": github_user,
     # Auto-detect directory name.  This can break, but
     # useful as a default.
-    "github_repo": github_repo_name or basename(dirname(dirname(realpath(__file__)))),
+    "github_repo": github_repo_name or detected_repo_name,
     "github_version": github_version,
     "conf_py_path": conf_py_path,
 }
+
+# FIXME: modify intersphinx mapping to link to external content
 
 # Intersphinx mapping.  For example, with this you can use
 # :py:mod:`multiprocessing` to link straight to the Python docs of that module.
 # List all available references:
 #   python -msphinx.ext.intersphinx https://docs.python.org/3/objects.inv
 # extensions.append('sphinx.ext.intersphinx')
-# intersphinx_mapping = {
-#    #'python': ('https://docs.python.org/3', None),
-#    #'sphinx': ('https://www.sphinx-doc.org/', None),
-#    #'numpy': ('https://numpy.org/doc/stable/', None),
-#    #'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
-#    #'pandas': ('https://pandas.pydata.org/docs/', None),
-#    #'matplotlib': ('https://matplotlib.org/', None),
-#    'seaborn': ('https://seaborn.pydata.org/', None),
-# }
-
-# add few new directives
-from sphinx_lesson.directives import _BaseCRDirective
-
-
-class SignatureDirective(_BaseCRDirective):
-    extra_classes = ["toggle-shown", "dropdown"]
-
-
-class ParametersDirective(_BaseCRDirective):
-    extra_classes = ["dropdown"]
-
-
-class TypealongDirective(_BaseCRDirective):
-    extra_classes = ["toggle-shown", "dropdown"]
-
-
-DIRECTIVES = [SignatureDirective, ParametersDirective, TypealongDirective]
-
-
-def setup(app):
-    for obj in DIRECTIVES:
-        app.add_directive(obj.cssname(), obj)
+intersphinx_mapping = {
+    # "python": ("https://docs.python.org/3", None),
+    # "sphinx": ("https://www.sphinx-doc.org/", None),
+    # "numpy": ("https://numpy.org/doc/stable/", None),
+    # "scipy": ("https://docs.scipy.org/doc/scipy/reference/", None),
+    # "pandas": ("https://pandas.pydata.org/docs/", None),
+    # "matplotlib": ("https://matplotlib.org/", None),
+    # "seaborn": ("https://seaborn.pydata.org/", None),
+    # "evita": ("https://sphinx-evita.readthedocs.io/en/latest", None),
+    # "instruct": ("https://enccs.github.io/instructor-training/", None),
+    # "lesson": ("https://coderefinery.github.io/sphinx-lesson/", None),
+    # "myst": ("https://myst-parser.readthedocs.io/en/latest/", None),
+}
