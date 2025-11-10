@@ -30,7 +30,7 @@ jobs:
 
     steps:
       # https://github.com/marketplace/actions/checkout
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: false
           fetch-depth: 0
@@ -39,9 +39,9 @@ jobs:
       # https://github.com/marketplace/actions/setup-python
       # ^-- This gives info on matrix testing.
       - name: Install Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
+          python-version: '3.13'
           cache: 'pip'
 
       # https://docs.github.com/en/actions/guides/building-and-testing-python#installing-dependencies
@@ -49,7 +49,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install --group notebook .
 
         # Debug
       - name: Debugging information
@@ -81,14 +81,6 @@ jobs:
         # SPHINXOPTS used via environment variables
         run: |
           make dirhtml
-          # This fixes broken copy button icons, as explained in
-          #   https://github.com/coderefinery/sphinx-lesson/issues/50
-          #   https://github.com/executablebooks/sphinx-copybutton/issues/110
-          # This can be removed once these PRs are accepted (but the
-          # fixes also need to propagate to other themes):
-          #   https://github.com/sphinx-doc/sphinx/pull/8524
-          #   https://github.com/readthedocs/sphinx_rtd_theme/pull/1025
-          sed -i 's/url_root="#"/url_root=""/' _build/dirhtml/index.html || true
 
       # singlehtml
       - name: Generate singlehtml
@@ -101,7 +93,6 @@ jobs:
       - name: Generate PDF
         if: ${{ env.GENERATE_PDF == 'true' }}
         run: |
-          #pip install https://github.com/rkdarst/sphinx_pyppeteer_builder/archive/refs/heads/main.zip
           pip install sphinx_pyppeteer_builder
           make pyppeteer
           mv _build/pyppeteer/*.pdf _build/dirhtml/${PDF_FILENAME}
