@@ -9,7 +9,8 @@ dependencies = [
   "jupytext>=1.18.1",
   "myst-nb>=1.3.0",
   "sphinx>=8.2.3",
-  "sphinx-evita>=0.1.0b1",
+  # "sphinx-evita>=0.1.0b1",
+  "sphinx-evita @ https://github.com/ENCCS/sphinx-evita/archive/refs/tags/v0.1.0b1.zip",
   "sphinx-lesson>=0.8.16",
   "sphinxcontrib-bibtex>=2.6.5",
 ]
@@ -23,5 +24,9 @@ dev = [
 # All dependencies used within Jupyter Notebooks
 notebook = []
 
-[tool.uv.sources]
-sphinx-evita = { url = "https://github.com/ENCCS/sphinx-evita/archive/refs/tags/v0.1.0b1.zip" }
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = false
