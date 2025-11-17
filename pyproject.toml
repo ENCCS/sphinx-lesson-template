@@ -22,3 +22,6 @@ dev = [
 ]
 # All dependencies used within Jupyter Notebooks
 notebook = []
+
+[tool.uv.sources]
+sphinx-evita = { url = "https://github.com/ENCCS/sphinx-evita/archive/refs/tags/v0.1.0b1.zip" }
