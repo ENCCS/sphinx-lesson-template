@@ -925,10 +925,10 @@ wheels = [{ url = "https://files.pythonhosted.org/packages/9e/48/1ea60e74949eecb
 
 [[packages]]
 name = "sphinx-evita"
-version = "0.2.0b1"
+version = "0.3.1b0"
 index = "https://pypi.org/simple"
-sdist = { url = "https://files.pythonhosted.org/packages/35/3c/8f1d5e7511b59caea70ea9cf6b089aa055189d24ca4434d9ac67cd781772/sphinx_evita-0.2.0b1.tar.gz", upload-time = 2026-02-26T12:39:11Z, size = 157619, hashes = { sha256 = "213e0c2a44e3f914160edf26fd51d746fb39583c9c25ab90f41f78d5f570a801" } }
-wheels = [{ url = "https://files.pythonhosted.org/packages/49/9a/af2e5370f62b86991910f345c989210af8e7a18481d73b515f7176903611/sphinx_evita-0.2.0b1-py3-none-any.whl", upload-time = 2026-02-26T12:39:09Z, size = 155705, hashes = { sha256 = "dc5fca5bcc320cf3464c9ce344e14c9e319a976f29b4890726b67caeba860efd" } }]
+sdist = { url = "https://files.pythonhosted.org/packages/49/de/89e0269ecbf2cf96a40dc9a1c51e6a47e260070b7a7ed331303470603e54/sphinx_evita-0.3.1b0.tar.gz", upload-time = 2026-05-26T12:50:50Z, size = 372657, hashes = { sha256 = "ec80b3453887034fee14d55c62e512ed27d4806645d8614550ed77058e141980" } }
+wheels = [{ url = "https://files.pythonhosted.org/packages/8e/20/3880cee18bb6eac145b3f65888282d91e1cdc5b5c0ee767abd456b327aa7/sphinx_evita-0.3.1b0-py3-none-any.whl", upload-time = 2026-05-26T12:50:48Z, size = 371343, hashes = { sha256 = "ebce855d2d3d656172232319461ee8f73d37d790159b84e471488fdcb9d75ded" } }]
 
 [[packages]]
 name = "sphinx-lesson"

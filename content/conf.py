@@ -125,6 +125,9 @@ html_context = {
     "conf_py_path": conf_py_path,
 }
 
+# sphinx-evita
+evita_eu_funding_badge = "co-funded"
+
 # FIXME: modify intersphinx mapping to link to external content
 
 # Intersphinx mapping.  For example, with this you can use
