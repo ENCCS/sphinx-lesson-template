@@ -1,0 +1,24 @@
+{% extends "!page.html" %}
+{% block footer %}
+<div class="cc3-logos">
+  <a href="https://www.eurohpc-ju.europa.eu/index_en"><img src="{{ pathto('_static/logos/cc3/eurohpc.svg', 1) }}" alt="EuroHPC Joint Undertaking"></a>
+  <a href="https://hpc-portal.eu/"><img src="{{ pathto('_static/logos/cc3/hpc-in-europe.svg', 1) }}" alt="HPC in Europe"></a>
+  <a href="https://hpc-portal.eu/projects/eurocc-3-national-competence-centres-in-the-framework-eurohpc"><img src="{{ pathto('_static/logos/cc3/eurocc3.svg', 1) }}" alt="EuroCC 3"></a>
+  <a href="https://liu.se/en"><img src="{{ pathto('_static/logos/partners/liu.svg', 1) }}" alt="Linköping University"></a>
+  <a href="https://www.ri.se/en"><img src="{{ pathto('_static/logos/partners/rise.svg', 1) }}" alt="RISE Research Institutes of Sweden"></a>
+  <a href="https://www.vr.se/english.html"><img src="{{ pathto('_static/logos/national/vr.svg', 1) }}" alt="Swedish Research Council"></a>
+  <a href="https://www.vinnova.se/en/"><img src="{{ pathto('_static/logos/national/vinnova.svg', 1) }}" alt="Vinnova"></a>
+</div>
+{{ super() }}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var c = document.querySelector(".copyright");
+    if (!c) return;
+    var a = document.createElement("a");
+    a.href = "https://european-union.europa.eu/index_en";
+    a.className = "eu-emblem-link";
+    a.setAttribute("aria-label", "European Union");
+    c.prepend(a);
+  });
+</script>
+{% endblock footer %}
