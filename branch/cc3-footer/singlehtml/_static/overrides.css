@@ -1,0 +1,65 @@
+.sidebar-logo {
+	max-width: 75%;
+}
+
+/* EU emblem at least as prominent as the other logos (EuroCC 3 grant agreement, Article 17) */
+.copyright:before {
+	height: 90px !important;
+}
+
+/* EuroHPC JU, HPC in Europe and EuroCC 3 logos below the emblem and disclaimer */
+footer {
+	display: flex;
+	flex-direction: column;
+}
+footer .related-pages { order: 1; }
+footer .bottom-of-page { order: 2; }
+footer .cc3-logos { order: 3; }
+.cc3-logos {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 12px;
+	gap: 1.5rem;
+	align-items: center;
+	width: fit-content;
+	margin: 0.5rem 0 1rem;
+	padding: 6px 12px;
+	border-radius: 6px;
+}
+.cc3-logos img {
+	height: 36px;
+	flex-shrink: 0;
+	width: auto;
+	background: transparent !important;
+	filter: none !important;
+	box-shadow: none !important;
+}
+.cc3-logos img[src*="eurohpc"] {
+	height: 30px;
+}
+/* national funders (optional in the CC3 footer template) */
+.cc3-logos img[src*="vinnova"] {
+	height: 25px;
+}
+/* host partners of ENCCS */
+.cc3-logos img[src*="liu"] {
+	height: 27px;
+}
+body[data-theme="dark"] .cc3-logos { background: #fff; }
+@media (prefers-color-scheme: dark) {
+	body:not([data-theme="light"]) .cc3-logos { background: #fff; }
+	body[data-theme="light"] .copyright:before {
+		background-image: url("EN_Co-funded/EN_Co-fundedbytheEU_RGB_POS.png") !important;
+	}
+}
+
+
+/* EU emblem linked to the EU website (CC3 website footer instructions) */
+.copyright { position: relative; }
+.eu-emblem-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 90px;
+}
