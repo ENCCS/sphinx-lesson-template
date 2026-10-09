@@ -1,3 +1,116 @@
 .sidebar-logo {
 	max-width: 75%;
 }
+
+/* EU emblem at least as prominent as the other logos (EuroCC 3 grant agreement, Article 17) */
+.copyright:before {
+	height: 90px !important;
+}
+
+/* EuroHPC JU, HPC in Europe and EuroCC 3 logos below the emblem and disclaimer */
+footer {
+	display: flex;
+	flex-direction: column;
+}
+footer .related-pages { order: 1; }
+footer .bottom-of-page { order: 2; }
+footer .cc3-logos { order: 3; }
+.cc3-logos {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 12px;
+	gap: 1.5rem;
+	align-items: center;
+	width: fit-content;
+	margin: 0.5rem 0 1rem;
+	padding: 6px 12px;
+	border-radius: 6px;
+}
+.cc3-logos img {
+	height: 36px;
+	flex-shrink: 0;
+	width: auto;
+	max-width: 100%;
+	object-fit: contain;
+	background: transparent !important;
+	filter: none !important;
+	box-shadow: none !important;
+}
+.cc3-logos img[src*="eurohpc"] {
+	height: 30px;
+}
+/* national funders (optional in the CC3 footer template) */
+.cc3-logos img[src*="vinnova"] {
+	height: 25px;
+}
+/* host partners of ENCCS */
+.cc3-logos img[src*="liu"] {
+	height: 27px;
+}
+/* Keep the official badge legible for explicit and automatic theme choices. */
+.copyright:before {
+	background-image: url("EN_Co-funded/EN_Co-fundedbytheEU_RGB_POS.png") !important;
+}
+body[data-theme="dark"] .copyright:before {
+	background-image: url("EN_Co-funded/EN_Co-fundedbytheEU_RGB_NEG.png") !important;
+}
+
+/* Swap to white assets in dark mode, including Auto. See logos/SOURCES.md. */
+.cc3-logos .cc3-logo-dark {
+	display: none;
+}
+/* The official negative EuroHPC asset includes a larger clear-space canvas. */
+.cc3-logos img.cc3-logo-dark[src*="eurohpc"] {
+	height: 66px;
+}
+.cc3-logos a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	flex: 0 0 var(--cc3-logo-width);
+	width: var(--cc3-logo-width);
+	height: 66px;
+}
+/* Reserve the dark-mode slots in both themes so swapping assets cannot move
+   neighbouring logos or change where the row wraps. */
+.cc3-logo-eurohpc { --cc3-logo-width: 152px; }
+.cc3-logo-hpc-in-europe { --cc3-logo-width: 80px; }
+.cc3-logo-eurocc3 { --cc3-logo-width: 56px; }
+.cc3-logo-liu { --cc3-logo-width: 108px; }
+.cc3-logo-rise { --cc3-logo-width: 28px; }
+.cc3-logo-vr { --cc3-logo-width: 58px; }
+.cc3-logo-vinnova { --cc3-logo-width: 115px; }
+.cc3-logos .cc3-logo-inset {
+	height: 52px;
+	padding: 8px 12px;
+	border-radius: 4px;
+}
+body[data-theme="dark"] .cc3-logos .cc3-logo-light {
+	display: none;
+}
+body[data-theme="dark"] .cc3-logos .cc3-logo-dark {
+	display: block;
+}
+@media (prefers-color-scheme: dark) {
+	body:not([data-theme="light"]) .copyright:before {
+		background-image: url("EN_Co-funded/EN_Co-fundedbytheEU_RGB_NEG.png") !important;
+	}
+	body:not([data-theme="light"]) .cc3-logos .cc3-logo-light {
+		display: none;
+	}
+	body:not([data-theme="light"]) .cc3-logos .cc3-logo-dark {
+		display: block;
+	}
+}
+
+
+/* EU emblem linked to the EU website (CC3 website footer instructions) */
+.copyright { position: relative; }
+.eu-emblem-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 90px;
+}
