@@ -1,0 +1,22 @@
+.copyright:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 50px;
+    background-image: url("EN_Co-funded/EN_Co-fundedbytheEU_RGB_POS.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+@media (prefers-color-scheme: dark) {
+    .copyright:before {
+        background-image: url("EN_Co-funded/EN_Co-fundedbytheEU_RGB_NEG.png");
+    }
+}
+
+body[data-theme="dark"] {
+    .copyright:before {
+        background-image: url("EN_Co-funded/EN_Co-fundedbytheEU_RGB_NEG.png");
+    }
+}
