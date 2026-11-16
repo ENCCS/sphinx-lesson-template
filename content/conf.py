@@ -17,7 +17,22 @@
 project = "Your lesson name"
 # FIXME: insert correct author
 author = "The contributors"
-copyright = f"2025, ENCCS, {author}"
+copyright = (
+    f"2025, ENCCS, {author} | "
+    "EuroCC 3 has received funding from the European High-Performance Computing Joint Undertaking"
+    " (JU) under Grant Agreement No. 101306701. The JU receives support from the European Union's"
+    " Digital Europe Programme and Germany, Albania, Austria, Belgium, Bosnia and Herzegovina, "
+    "Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Greece, Hungary, "
+    "Iceland, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Montenegro, the Netherlands, "
+    "North Macedonia, Norway, Poland, Portugal, Romania, Serbia, Slovakia, Slovenia, Spain, "
+    "Sweden, Türkiye, and Kosovo. Funded by the European Union. Views and opinions expressed are "
+    "however those of the author(s) only and do not necessarily reflect those of the European "
+    "Union or EuroHPC Joint Undertaking. Neither the European Union nor the EuroHPC Joint "
+    "Undertaking can be held responsible for them. ENCCS has also received national funding "
+    "through Vinnova and the Swedish Research Council (VR). HPC in Europe is the umbrella brand "
+    "uniting Europe's high-performance computing initiatives across 36+ countries. The project is"
+    " supported by the European High-Performance Computing Joint Undertaking and its members."
+)
 
 # FIXME: github organization / user that the repository belongs to
 github_user = "ENCCS"
@@ -59,7 +74,7 @@ myst_substitutions = {"author": author}
 copybutton_exclude = ".linenos, .gp"
 
 # Add any paths that contain templates here, relative to this directory.
-# templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
