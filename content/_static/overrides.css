@@ -2,10 +2,6 @@
 	max-width: 75%;
 }
 
-/* EU emblem at least as prominent as the other logos (EuroCC 3 grant agreement, Article 17) */
-.copyright:before {
-	height: 90px !important;
-}
 
 /* EuroHPC JU, HPC in Europe and EuroCC 3 logos below the emblem and disclaimer */
 footer {
