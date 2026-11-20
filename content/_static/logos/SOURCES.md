@@ -22,3 +22,7 @@ Retrieved 2026-10-09.
 These two variants are enabled for local design review. They are not verified
 publisher-approved assets. Confirm them against the current consortium brand
 manual or replace them with approved negative variants before publishing.
+
+## Light-background update
+
+- `national/vr.png`: [Swedish Research Council press page](https://www.vr.se/english/about-us/press.html), logo pack, `logotype_vetenskapsrådet_portrait_ENG_RGB_1000px.png` (black), unchanged. It replaces the older `vr.svg`, which showed the council's previous logo; it matches `national/vr-dark.png`.
